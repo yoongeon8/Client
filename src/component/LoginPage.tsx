@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { GlobalStyle, Container, Wapper, TitleContainer } from "./StartPage";
 import {useState} from "react";
 import Pencil from "../assets/pen.svg";
+import { useNavigate } from "react-router-dom";
 
 const Title = styled.h1`
     position: relative;
@@ -69,6 +70,7 @@ const Icon = styled.img`
 
 function LoginPage(){
     const [name, setName] = useState("");
+    const navigate = useNavigate();
     
     const getName = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -91,6 +93,7 @@ function LoginPage(){
                 throw new Error("서버 에러");
             }
             console.log("전송 성공");
+            navigate("/prolog");
         } catch(err){
             console.error(err);
         }
@@ -109,7 +112,7 @@ function LoginPage(){
                 </Wapper>
                 <Wapper>
                     <FormBorder>
-                        <Form onSubmit={getName }>
+                        <Form onSubmit={getName}>
                             <NameInput
                                 placeholder="이름을 작성해 주세요."
                                 value={name}

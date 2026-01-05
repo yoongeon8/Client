@@ -73,7 +73,7 @@ export const Container = styled.div<ContainerProps>`
         pointer-events: none;
         z-index: 1;
     }
-  `}
+    `}
 `;
 export const Wapper = styled.div`
     display: flex;
